@@ -229,7 +229,6 @@ const ExtratoExport = () => {
               </div>
             );
           })}
-          })}
 
           {/* ===== FOOTER ===== */}
           <div style={{ marginTop: "32px", borderTop: "1px solid #ddd", paddingTop: "16px", fontSize: "10px", color: "#888", lineHeight: "1.6" }}>
