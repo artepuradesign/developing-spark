@@ -78,7 +78,7 @@ const ExtratoExport = () => {
       <style>{`
         @media print {
           @page {
-            margin: 0;
+            margin: 3mm;
             size: A4;
           }
           body {
