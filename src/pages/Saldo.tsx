@@ -105,7 +105,7 @@ const Saldo = () => {
   });
 
   const handleExportExtrato = () => {
-    if (!selectedMonth || !userId) return;
+    if (!selectedMonth || !contaId) return;
 
     let startDate: string;
     let endDate: string;
@@ -123,7 +123,7 @@ const Saldo = () => {
       endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
     }
 
-    navigate(`/extrato-export?conta_id=${userId}&data_inicio=${startDate}&data_fim=${endDate}`);
+    navigate(`/extrato-export?conta_id=${contaId}&data_inicio=${startDate}&data_fim=${endDate}`);
   };
 
   return (
