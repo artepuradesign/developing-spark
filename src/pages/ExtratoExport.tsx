@@ -187,7 +187,7 @@ const ExtratoExport = () => {
                             <td style={{ padding: "4px 8px", verticalAlign: "top", color: "#888", fontSize: "10px", lineHeight: "1.6" }}>
                               {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                             </td>
-                            <td style={{ textAlign: "right", padding: "4px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
+                            <td style={{ textAlign: "right", padding: "4px 0 4px 24px", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                           </tr>
                         ))}
                       </>
