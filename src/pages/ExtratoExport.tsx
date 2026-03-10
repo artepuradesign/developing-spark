@@ -105,7 +105,7 @@ const ExtratoExport = () => {
         @media not print {
           .print-footer-screen {
             margin-top: 32px;
-            border-top: 1px solid #ccc;
+            border-top: 2px solid #ccc;
             padding-top: 16px;
             font-size: 9px;
             color: #888;
