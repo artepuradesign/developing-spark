@@ -84,6 +84,7 @@ const ExtratoExport = () => {
           body {
             margin: 0;
             padding: 0;
+            counter-reset: page 0;
           }
           .print-footer {
             position: fixed;
@@ -97,6 +98,7 @@ const ExtratoExport = () => {
             border-top: 2px solid #ccc;
             font-family: 'Graphik', sans-serif;
             font-weight: 400;
+            counter-increment: page;
           }
           .print-footer .footer-date-page {
             display: flex;
