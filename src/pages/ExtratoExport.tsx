@@ -86,7 +86,7 @@ const ExtratoExport = () => {
 
       <div className="flex justify-center py-8 print:py-0 bg-secondary/30 print:bg-white min-h-screen">
         <div
-          className="bg-white shadow-lg print:shadow-none w-[210mm] min-h-[297mm] px-[25mm] py-[20mm] print:w-full print:min-h-0 print:px-[20mm] print:py-[15mm]"
+          className="bg-white shadow-lg print:shadow-none w-[210mm] min-h-[297mm] px-[15mm] py-[20mm] print:w-full print:min-h-0 print:px-[12mm] print:py-[15mm]"
           style={pageStyle}
         >
           {/* ===== HEADER ===== */}
