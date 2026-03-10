@@ -176,7 +176,7 @@ const ExtratoExport = () => {
                           <td style={{ width: "110px", verticalAlign: "top", padding: "10px 16px 10px 0", color: "#222" }}>{(() => { if (showDate) { showDate = false; return fmtDia(dia); } return ""; })()}</td>
                           <td style={{ fontWeight: 700, padding: "10px 0", verticalAlign: "top" }}>Total de entradas</td>
                           <td style={{ padding: "10px 0" }}></td>
-                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0", whiteSpace: "nowrap", verticalAlign: "top" }}>+{fmt(totalE)}</td>
+                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0 10px 24px", whiteSpace: "nowrap", verticalAlign: "top" }}>+{fmt(totalE)}</td>
                         </tr>
                         {entradas.map((t: any, i: number) => (
                           <tr key={t.id || i}>
