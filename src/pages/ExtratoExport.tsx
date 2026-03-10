@@ -208,10 +208,9 @@ const ExtratoExport = () => {
                           <td style={{ padding: "6px 12px 6px 0" }}></td>
                           <td style={{ padding: "6px 0", verticalAlign: "top" }}>
                             <span>{t.descricao}</span>
-                            <br />
-                            <span style={{ color: "#888", fontSize: "10px" }}>
-                              {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
-                            </span>
+                          </td>
+                          <td style={{ padding: "6px 0", verticalAlign: "top", color: "#888", fontSize: "10px" }}>
+                            {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                           </td>
                           <td style={{ textAlign: "right", padding: "6px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                         </tr>
