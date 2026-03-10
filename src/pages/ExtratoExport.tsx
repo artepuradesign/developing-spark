@@ -145,7 +145,7 @@ const ExtratoExport = () => {
             <div className="text-right" style={{ fontSize: "12px", lineHeight: "1.6" }}>
               <p style={{ fontWeight: 400 }}>{conta.titular}</p>
               <p>
-                <span style={{ fontWeight: 700, color: "#820AD1" }}>{conta.tipo_conta === "PJ" ? "CNPJ" : "CPF"}</span>{"  "}{conta.documento}{"  "}
+                <span style={{ fontWeight: 700, color: "#222" }}>{conta.tipo_conta === "PJ" ? "CNPJ" : "CPF"}</span>{"  "}{conta.documento}{"  "}
                 <span style={{ fontWeight: 700 }}>Agência</span>{"  "}{conta.agencia || "0001"}{"  "}
                 <span style={{ fontWeight: 700 }}>Conta</span>
               </p>
