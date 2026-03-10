@@ -148,8 +148,9 @@ const ExtratoExport = () => {
           </div>
 
           {/* ===== MOVIMENTAÇÕES ===== */}
-          <div style={{ borderBottom: "2px solid #222", paddingBottom: "6px", marginBottom: "16px" }}>
-            <span style={{ fontWeight: 700, fontSize: "12px", textDecoration: "underline", textUnderlineOffset: "4px" }}>Movimentações</span>
+          <div style={{ borderBottom: "2px solid #222", marginBottom: "4px" }}></div>
+          <div style={{ marginBottom: "16px" }}>
+            <span style={{ fontWeight: 700, fontSize: "12px" }}>Movimentações</span>
           </div>
 
           {datasOrdenadas.length === 0 && (
