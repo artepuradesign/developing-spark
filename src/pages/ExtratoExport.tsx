@@ -163,74 +163,72 @@ const ExtratoExport = () => {
             const saidas = trans.filter((t: any) => t.tipo === "saida");
             const totalE = entradas.reduce((s: number, t: any) => s + parseFloat(t.valor), 0);
             const totalS = saidas.reduce((s: number, t: any) => s + parseFloat(t.valor), 0);
+            let showDate = true;
 
             return (
-              <div key={dia} style={{ marginBottom: "8px" }}>
-                {/* Entradas */}
-                {entradas.length > 0 && (
-                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
-                    <tbody>
-                      {/* Total de entradas row */}
-                      <tr style={{ borderBottom: "1px solid #eee" }}>
-                        <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>{fmtDia(dia)}</td>
-                        <td style={{ fontWeight: 700, padding: "8px 0" }}>Total de entradas</td>
-                        <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0", whiteSpace: "nowrap" }}>+ {fmt(totalE)}</td>
-                      </tr>
-                      {entradas.map((t: any, i: number) => (
-                        <tr key={t.id || i}>
-                          <td style={{ padding: "6px 12px 6px 0" }}></td>
-                          <td style={{ padding: "6px 0", verticalAlign: "top" }}>
-                            <span>{t.descricao}</span>
-                          </td>
-                          <td style={{ padding: "6px 0", verticalAlign: "top", color: "#888", fontSize: "10px" }}>
-                            {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
-                          </td>
-                          <td style={{ textAlign: "right", padding: "6px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                )}
-
-                {/* Saídas */}
-                {saidas.length > 0 && (
-                  <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
-                    <tbody>
-                      <tr style={{ borderBottom: "1px solid #eee" }}>
-                        <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>
-                          {entradas.length === 0 ? fmtDia(dia) : ""}
-                        </td>
-                        <td style={{ fontWeight: 700, padding: "8px 0" }}>Total de saídas</td>
-                        <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0", whiteSpace: "nowrap" }}>- {fmt(totalS)}</td>
-                      </tr>
-                      {saidas.map((t: any, i: number) => (
-                        <tr key={t.id || i}>
-                          <td style={{ padding: "6px 12px 6px 0" }}></td>
-                          <td style={{ padding: "6px 0", verticalAlign: "top" }}>
-                            <span>{t.descricao}</span>
-                          </td>
-                          <td style={{ padding: "6px 0", verticalAlign: "top", color: "#888", fontSize: "10px" }}>
-                            {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
-                          </td>
-                          <td style={{ textAlign: "right", padding: "6px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                )}
-
-                {/* Saldo do dia */}
+              <div key={dia} style={{ marginBottom: "0" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
                   <tbody>
-                    <tr style={{ borderTop: "1px solid #ccc", borderBottom: "1px solid #ccc" }}>
-                      <td style={{ width: "90px", padding: "8px 12px 8px 0" }}></td>
-                      <td style={{ fontWeight: 700, padding: "8px 0" }}>Saldo do dia</td>
-                      <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0" }}>{fmt(saldoPorDia[dia])}</td>
+                    {/* Entradas */}
+                    {entradas.length > 0 && (
+                      <>
+                        <tr>
+                          <td style={{ width: "110px", verticalAlign: "top", padding: "10px 16px 10px 0", color: "#222" }}>{(() => { if (showDate) { showDate = false; return fmtDia(dia); } return ""; })()}</td>
+                          <td style={{ fontWeight: 700, padding: "10px 0", verticalAlign: "top" }}>Total de entradas</td>
+                          <td style={{ padding: "10px 0" }}></td>
+                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0", whiteSpace: "nowrap", verticalAlign: "top" }}>+{fmt(totalE)}</td>
+                        </tr>
+                        {entradas.map((t: any, i: number) => (
+                          <tr key={t.id || i}>
+                            <td style={{ padding: "4px 16px 4px 0" }}></td>
+                            <td style={{ padding: "4px 0", verticalAlign: "top", width: "200px" }}>
+                              {t.descricao}
+                            </td>
+                            <td style={{ padding: "4px 8px", verticalAlign: "top", color: "#888", fontSize: "10px", lineHeight: "1.6" }}>
+                              {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
+                            </td>
+                            <td style={{ textAlign: "right", padding: "4px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
+                          </tr>
+                        ))}
+                      </>
+                    )}
+
+                    {/* Saídas */}
+                    {saidas.length > 0 && (
+                      <>
+                        <tr>
+                          <td style={{ width: "110px", verticalAlign: "top", padding: "10px 16px 10px 0", color: "#222" }}>{(() => { if (showDate) { showDate = false; return fmtDia(dia); } return ""; })()}</td>
+                          <td style={{ fontWeight: 700, padding: "10px 0", verticalAlign: "top" }}>Total de saídas</td>
+                          <td style={{ padding: "10px 0" }}></td>
+                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0", whiteSpace: "nowrap", verticalAlign: "top" }}>-{fmt(totalS)}</td>
+                        </tr>
+                        {saidas.map((t: any, i: number) => (
+                          <tr key={t.id || i}>
+                            <td style={{ padding: "4px 16px 4px 0" }}></td>
+                            <td style={{ padding: "4px 0", verticalAlign: "top", width: "200px" }}>
+                              {t.descricao}
+                            </td>
+                            <td style={{ padding: "4px 8px", verticalAlign: "top", color: "#888", fontSize: "10px", lineHeight: "1.6" }}>
+                              {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
+                            </td>
+                            <td style={{ textAlign: "right", padding: "4px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
+                          </tr>
+                        ))}
+                      </>
+                    )}
+
+                    {/* Saldo do dia */}
+                    <tr style={{ borderBottom: "1px solid #ccc" }}>
+                      <td style={{ padding: "10px 16px 10px 0" }}></td>
+                      <td style={{ fontWeight: 700, padding: "10px 0" }}>Saldo do dia</td>
+                      <td style={{ padding: "10px 0" }}></td>
+                      <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0" }}>{fmt(saldoPorDia[dia])}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             );
+          })}
           })}
 
           {/* ===== FOOTER ===== */}
