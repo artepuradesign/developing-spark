@@ -119,6 +119,11 @@ const ExtratoExport = () => {
             font-weight: 400;
           }
         }
+        @media print {
+          .print-footer-screen {
+            display: none !important;
+          }
+        }
       `}</style>
 
       {/* Print-only fixed footer on every page */}
