@@ -78,18 +78,18 @@ const ExtratoExport = () => {
       <style>{`
         @media print {
           @page {
-            margin: 12mm 12mm 42mm 12mm;
+            margin: 12mm 15mm 48mm 15mm;
           }
           .print-footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 12px 12mm 8px 12mm;
+            padding: 16px 15mm 10px 15mm;
             font-size: 8.5px;
             color: #888;
             line-height: 1.4;
-            border-top: 1px solid #ccc;
+            border-top: 2px solid #ccc;
             font-family: 'Graphik', sans-serif;
             font-weight: 400;
           }
@@ -105,7 +105,7 @@ const ExtratoExport = () => {
         @media not print {
           .print-footer-screen {
             margin-top: 32px;
-            border-top: 1px solid #ccc;
+            border-top: 2px solid #ccc;
             padding-top: 16px;
             font-size: 9px;
             color: #888;
@@ -168,8 +168,8 @@ const ExtratoExport = () => {
           {/* ===== RESUMO ===== */}
           <div className="flex justify-between items-start" style={{ marginBottom: "24px" }}>
             <div style={{ paddingTop: "8px" }}>
-              <p style={{ fontSize: "11px", color: "#666", marginBottom: "6px" }}>Saldo final do período</p>
-              <p style={{ fontSize: "26px", fontWeight: 700, color: "#820AD1", lineHeight: "1.2" }}>
+              <p style={{ fontSize: "11px", color: "#666", marginBottom: "6px", fontWeight: 700 }}>Saldo final do período</p>
+              <p style={{ fontSize: "22px", fontWeight: 400, color: "#820AD1", lineHeight: "1.2" }}>
                 R$ {fmt(resumo.saldo_final)}
               </p>
             </div>
