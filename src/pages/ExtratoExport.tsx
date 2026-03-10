@@ -218,7 +218,7 @@ const ExtratoExport = () => {
                     )}
 
                     {/* Saldo do dia */}
-                    <tr style={{ borderBottom: "1px solid #ccc" }}>
+                    <tr style={{ borderBottom: "2px solid #ccc" }}>
                       <td style={{ padding: "10px 16px 10px 0" }}></td>
                       <td style={{ fontWeight: 700, padding: "10px 0" }}>Saldo do dia</td>
                       <td style={{ padding: "10px 0" }}></td>
