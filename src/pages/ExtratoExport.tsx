@@ -74,6 +74,49 @@ const ExtratoExport = () => {
 
   return (
     <>
+      <style>{`
+        @media print {
+          @page {
+            margin: 12mm 12mm 35mm 12mm;
+          }
+          .print-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 12mm;
+            font-size: 9px;
+            color: #888;
+            line-height: 1.5;
+            border-top: 2px solid #ccc;
+          }
+          .print-footer .footer-date-page {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+          }
+        }
+        @media not print {
+          .print-footer-screen {
+            margin-top: 32px;
+            border-top: 2px solid #ccc;
+            padding-top: 16px;
+            font-size: 10px;
+            color: #888;
+            line-height: 1.6;
+          }
+        }
+      `}</style>
+
+      {/* Print-only fixed footer on every page */}
+      <div className="print-footer hidden print:block">
+        <p>Tem alguma dúvida? Mande uma mensagem para nosso time de atendimento pelo chat do app ou ligue 4020 0185 (capitais e regiões metropolitanas) ou 0800 591 2117 (demais localidades). Atendimento 24h.</p>
+        <p style={{ marginTop: "4px" }}>Caso a solução fornecida nos canais de atendimento não tenha sido satisfatória, fale com a Ouvidoria em 0800 887 0463 ou pelos meios disponíveis em nubank.com.br/contatos#ouvidoria. Atendimento das 8h às 18h em dias úteis.</p>
+        <div className="footer-date-page">
+          <span>Extrato gerado dia {new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })} às {new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</span>
+        </div>
+      </div>
+
       <div className="print:hidden bg-secondary/30 border-b border-border px-6 py-4 flex items-center gap-4 sticky top-0 z-50">
         <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
           <ArrowLeft className="h-5 w-5" />
