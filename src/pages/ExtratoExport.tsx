@@ -105,11 +105,13 @@ const ExtratoExport = () => {
         @media not print {
           .print-footer-screen {
             margin-top: 32px;
-            border-top: 2px solid #ccc;
+            border-top: 1px solid #ccc;
             padding-top: 16px;
-            font-size: 10px;
+            font-size: 9px;
             color: #888;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-family: 'Graphik', sans-serif;
+            font-weight: 400;
           }
         }
       `}</style>
