@@ -176,7 +176,7 @@ const ExtratoExport = () => {
                           <td style={{ width: "110px", verticalAlign: "top", padding: "10px 16px 10px 0", color: "#222" }}>{(() => { if (showDate) { showDate = false; return fmtDia(dia); } return ""; })()}</td>
                           <td style={{ fontWeight: 700, padding: "10px 0", verticalAlign: "top" }}>Total de entradas</td>
                           <td style={{ padding: "10px 0" }}></td>
-                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0", whiteSpace: "nowrap", verticalAlign: "top" }}>+{fmt(totalE)}</td>
+                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0 10px 24px", whiteSpace: "nowrap", verticalAlign: "top" }}>+{fmt(totalE)}</td>
                         </tr>
                         {entradas.map((t: any, i: number) => (
                           <tr key={t.id || i}>
@@ -187,7 +187,7 @@ const ExtratoExport = () => {
                             <td style={{ padding: "4px 8px", verticalAlign: "top", color: "#888", fontSize: "10px", lineHeight: "1.6" }}>
                               {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                             </td>
-                            <td style={{ textAlign: "right", padding: "4px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
+                            <td style={{ textAlign: "right", padding: "4px 0 4px 24px", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                           </tr>
                         ))}
                       </>
@@ -200,7 +200,7 @@ const ExtratoExport = () => {
                           <td style={{ width: "110px", verticalAlign: "top", padding: "10px 16px 10px 0", color: "#222" }}>{(() => { if (showDate) { showDate = false; return fmtDia(dia); } return ""; })()}</td>
                           <td style={{ fontWeight: 700, padding: "10px 0", verticalAlign: "top" }}>Total de saídas</td>
                           <td style={{ padding: "10px 0" }}></td>
-                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0", whiteSpace: "nowrap", verticalAlign: "top" }}>-{fmt(totalS)}</td>
+                          <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0 10px 24px", whiteSpace: "nowrap", verticalAlign: "top" }}>-{fmt(totalS)}</td>
                         </tr>
                         {saidas.map((t: any, i: number) => (
                           <tr key={t.id || i}>
@@ -211,7 +211,7 @@ const ExtratoExport = () => {
                             <td style={{ padding: "4px 8px", verticalAlign: "top", color: "#888", fontSize: "10px", lineHeight: "1.6" }}>
                               {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                             </td>
-                            <td style={{ textAlign: "right", padding: "4px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
+                            <td style={{ textAlign: "right", padding: "4px 0 4px 24px", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                           </tr>
                         ))}
                       </>
@@ -222,7 +222,7 @@ const ExtratoExport = () => {
                       <td style={{ padding: "10px 16px 10px 0" }}></td>
                       <td style={{ fontWeight: 700, padding: "10px 0" }}>Saldo do dia</td>
                       <td style={{ padding: "10px 0" }}></td>
-                      <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0" }}>{fmt(saldoPorDia[dia])}</td>
+                      <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0 10px 24px" }}>{fmt(saldoPorDia[dia])}</td>
                     </tr>
                   </tbody>
                 </table>
