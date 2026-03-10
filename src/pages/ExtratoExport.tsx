@@ -91,7 +91,7 @@ const ExtratoExport = () => {
         >
           {/* ===== HEADER ===== */}
           <div className="flex justify-between items-start mb-12">
-            <img src={logoNu} alt="Nu" style={{ height: "42px", width: "auto" }} />
+            <img src={logoNu} alt="Nu" style={{ height: "32px", width: "auto" }} />
             <div className="text-right" style={{ fontSize: "12px", lineHeight: "1.6" }}>
               <p style={{ fontWeight: 400 }}>{conta.titular}</p>
               <p>
