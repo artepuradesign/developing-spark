@@ -140,8 +140,8 @@ const ExtratoExport = () => {
                   <td style={{ textAlign: "right", padding: "3px 0" }}>-{fmt(resumo.total_saidas)}</td>
                 </tr>
                 <tr>
-                  <td style={{ fontWeight: 700, padding: "6px 16px 3px 0", borderTop: "1px solid #ccc" }}>Saldo final do período</td>
-                  <td style={{ fontWeight: 700, textAlign: "right", padding: "6px 0 3px 0", borderTop: "1px solid #ccc" }}>{fmt(resumo.saldo_final)}</td>
+                  <td style={{ fontWeight: 700, padding: "6px 16px 3px 0" }}>Saldo final do período</td>
+                  <td style={{ fontWeight: 700, textAlign: "right", padding: "6px 0 3px 0" }}>{fmt(resumo.saldo_final)}</td>
                 </tr>
               </tbody>
             </table>
