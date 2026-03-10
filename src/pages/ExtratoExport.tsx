@@ -196,7 +196,7 @@ const ExtratoExport = () => {
                 {saidas.length > 0 && (
                   <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
                     <tbody>
-                      <tr style={{ borderBottom: "1px solid #ddd" }}>
+                      <tr style={{ borderBottom: "1px solid #eee" }}>
                         <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>
                           {entradas.length === 0 ? fmtDia(dia) : ""}
                         </td>
