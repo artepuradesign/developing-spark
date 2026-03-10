@@ -117,7 +117,7 @@ const ExtratoExport = () => {
           <div className="flex justify-between items-start" style={{ marginBottom: "24px" }}>
             <div style={{ paddingTop: "8px" }}>
               <p style={{ fontSize: "11px", color: "#666", marginBottom: "6px" }}>Saldo final do período</p>
-              <p style={{ fontSize: "26px", fontWeight: 700, color: "#1a7a2e", lineHeight: "1.2" }}>
+              <p style={{ fontSize: "26px", fontWeight: 700, color: "#820AD1", lineHeight: "1.2" }}>
                 R$ {fmt(resumo.saldo_final)}
               </p>
             </div>
