@@ -66,7 +66,8 @@ const ExtratoExport = () => {
   }
 
   const pageStyle: React.CSSProperties = {
-    fontFamily: "'Graphik Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontFamily: "'Graphik', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    fontWeight: 400,
     fontSize: "11px",
     lineHeight: "1.5",
     color: "#222",
@@ -77,18 +78,20 @@ const ExtratoExport = () => {
       <style>{`
         @media print {
           @page {
-            margin: 12mm 12mm 35mm 12mm;
+            margin: 12mm 12mm 42mm 12mm;
           }
           .print-footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 8px 12mm;
-            font-size: 9px;
+            padding: 12px 12mm 8px 12mm;
+            font-size: 8.5px;
             color: #888;
-            line-height: 1.5;
-            border-top: 2px solid #ccc;
+            line-height: 1.4;
+            border-top: 1px solid #ccc;
+            font-family: 'Graphik', sans-serif;
+            font-weight: 400;
           }
           .print-footer .footer-date-page {
             display: flex;
@@ -102,11 +105,13 @@ const ExtratoExport = () => {
         @media not print {
           .print-footer-screen {
             margin-top: 32px;
-            border-top: 2px solid #ccc;
+            border-top: 1px solid #ccc;
             padding-top: 16px;
-            font-size: 10px;
+            font-size: 9px;
             color: #888;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-family: 'Graphik', sans-serif;
+            font-weight: 400;
           }
         }
       `}</style>
@@ -142,7 +147,7 @@ const ExtratoExport = () => {
             <div className="text-right" style={{ fontSize: "12px", lineHeight: "1.6" }}>
               <p style={{ fontWeight: 400 }}>{conta.titular}</p>
               <p>
-                <span style={{ fontWeight: 700, color: "#820AD1" }}>{conta.tipo_conta === "PJ" ? "CNPJ" : "CPF"}</span>{"  "}{conta.documento}{"  "}
+                <span style={{ fontWeight: 700, color: "#222" }}>{conta.tipo_conta === "PJ" ? "CNPJ" : "CPF"}</span>{"  "}{conta.documento}{"  "}
                 <span style={{ fontWeight: 700 }}>Agência</span>{"  "}{conta.agencia || "0001"}{"  "}
                 <span style={{ fontWeight: 700 }}>Conta</span>
               </p>
