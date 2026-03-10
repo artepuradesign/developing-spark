@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, HelpCircle, MoreHorizontal, Plus, Send, BarC
 import { apiGet } from "@/lib/api";
 
 interface ContaData {
+  conta_id: number;
   saldo: number;
   limite_credito: number;
 }
@@ -40,6 +41,7 @@ const Saldo = () => {
   const [showMonthPicker, setShowMonthPicker] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const [userId, setUserId] = useState<number | null>(null);
+  const [contaId, setContaId] = useState<number | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("nu_user") || sessionStorage.getItem("nu_user");
@@ -57,6 +59,7 @@ const Saldo = () => {
       setLoading(true);
       const data = await apiGet<ContaResponse>("conta.php", { usuario_id: String(uid) });
       setContaData(data.conta);
+      setContaId(data.conta.conta_id);
       setFaturaAtual(data.fatura_atual);
       setTransacoes(data.transacoes || []);
     } catch (err) {
@@ -102,7 +105,7 @@ const Saldo = () => {
   });
 
   const handleExportExtrato = () => {
-    if (!selectedMonth || !userId) return;
+    if (!selectedMonth || !contaId) return;
 
     let startDate: string;
     let endDate: string;
@@ -120,7 +123,7 @@ const Saldo = () => {
       endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
     }
 
-    navigate(`/extrato-export?conta_id=${userId}&data_inicio=${startDate}&data_fim=${endDate}`);
+    navigate(`/extrato-export?conta_id=${contaId}&data_inicio=${startDate}&data_fim=${endDate}`);
   };
 
   return (
