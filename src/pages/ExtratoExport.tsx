@@ -87,7 +87,7 @@ const ExtratoExport = () => {
           }
           .print-footer {
             position: fixed;
-            bottom: 8mm;
+            bottom: 2mm;
             left: 15mm;
             right: 15mm;
             padding: 12px 0 0 0;
