@@ -39,6 +39,7 @@ const ExtratoExport = () => {
   }, [data]);
 
   const fmt = (v: number) =>
+    v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const handlePrint = () => window.print();
 
