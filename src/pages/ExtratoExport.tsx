@@ -78,7 +78,7 @@ const ExtratoExport = () => {
       <style>{`
         @media print {
           @page {
-            margin: 12mm 12mm 35mm 12mm;
+            margin: 12mm 12mm 42mm 12mm;
           }
           .print-footer {
             position: fixed;
