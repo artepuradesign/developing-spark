@@ -40,6 +40,7 @@ const Saldo = () => {
   const [showMonthPicker, setShowMonthPicker] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const [userId, setUserId] = useState<number | null>(null);
+  const [contaId, setContaId] = useState<number | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("nu_user") || sessionStorage.getItem("nu_user");
