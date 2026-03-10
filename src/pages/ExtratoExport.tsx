@@ -120,7 +120,7 @@ const ExtratoExport = () => {
             margin-top: 8px;
           }
           .print-footer .footer-page-number::after {
-            content: counter(page) " de " counter(pages);
+            content: counter(page) " de 
           }
         }
         @media not print {
