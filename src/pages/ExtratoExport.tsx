@@ -104,7 +104,7 @@ const ExtratoExport = () => {
           </div>
 
           {/* ===== PERÍODO ===== */}
-          <div style={{ borderBottom: "2px solid #222", paddingBottom: "8px", marginBottom: "24px" }}>
+          <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "8px", marginBottom: "24px" }}>
             <div className="flex justify-between items-baseline">
               <span style={{ fontWeight: 700, fontSize: "12px" }}>
                 {fmtPeriodo(dataInicio)} a {fmtPeriodo(dataFim)}
@@ -140,15 +140,15 @@ const ExtratoExport = () => {
                   <td style={{ textAlign: "right", padding: "3px 0" }}>-{fmt(resumo.total_saidas)}</td>
                 </tr>
                 <tr>
-                  <td style={{ fontWeight: 700, padding: "6px 16px 3px 0", borderTop: "1px solid #ccc" }}>Saldo final do período</td>
-                  <td style={{ fontWeight: 700, textAlign: "right", padding: "6px 0 3px 0", borderTop: "1px solid #ccc" }}>{fmt(resumo.saldo_final)}</td>
+                  <td style={{ fontWeight: 700, padding: "6px 16px 3px 0" }}>Saldo final do período</td>
+                  <td style={{ fontWeight: 700, textAlign: "right", padding: "6px 0 3px 0" }}>{fmt(resumo.saldo_final)}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           {/* ===== MOVIMENTAÇÕES ===== */}
-          <div style={{ borderBottom: "2px solid #222", marginBottom: "4px" }}></div>
+          <div style={{ borderBottom: "2px solid #ccc", marginBottom: "4px" }}></div>
           <div style={{ marginBottom: "16px" }}>
             <span style={{ fontWeight: 700, fontSize: "12px" }}>Movimentações</span>
           </div>
@@ -171,7 +171,7 @@ const ExtratoExport = () => {
                   <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
                     <tbody>
                       {/* Total de entradas row */}
-                      <tr style={{ borderBottom: "1px solid #ddd" }}>
+                      <tr style={{ borderBottom: "1px solid #eee" }}>
                         <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>{fmtDia(dia)}</td>
                         <td style={{ fontWeight: 700, padding: "8px 0" }}>Total de entradas</td>
                         <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0", whiteSpace: "nowrap" }}>+ {fmt(totalE)}</td>
@@ -181,10 +181,9 @@ const ExtratoExport = () => {
                           <td style={{ padding: "6px 12px 6px 0" }}></td>
                           <td style={{ padding: "6px 0", verticalAlign: "top" }}>
                             <span>{t.descricao}</span>
-                            <br />
-                            <span style={{ color: "#888", fontSize: "10px" }}>
-                              {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
-                            </span>
+                          </td>
+                          <td style={{ padding: "6px 0", verticalAlign: "top", color: "#888", fontSize: "10px" }}>
+                            {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                           </td>
                           <td style={{ textAlign: "right", padding: "6px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                         </tr>
@@ -197,7 +196,7 @@ const ExtratoExport = () => {
                 {saidas.length > 0 && (
                   <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
                     <tbody>
-                      <tr style={{ borderBottom: "1px solid #ddd" }}>
+                      <tr style={{ borderBottom: "1px solid #eee" }}>
                         <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>
                           {entradas.length === 0 ? fmtDia(dia) : ""}
                         </td>
@@ -209,10 +208,9 @@ const ExtratoExport = () => {
                           <td style={{ padding: "6px 12px 6px 0" }}></td>
                           <td style={{ padding: "6px 0", verticalAlign: "top" }}>
                             <span>{t.descricao}</span>
-                            <br />
-                            <span style={{ color: "#888", fontSize: "10px" }}>
-                              {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
-                            </span>
+                          </td>
+                          <td style={{ padding: "6px 0", verticalAlign: "top", color: "#888", fontSize: "10px" }}>
+                            {t.beneficiario_nome} - {t.beneficiario_documento} - {t.beneficiario_banco} Agência: {t.beneficiario_agencia} Conta: {t.beneficiario_conta}
                           </td>
                           <td style={{ textAlign: "right", padding: "6px 0", verticalAlign: "top", whiteSpace: "nowrap" }}>{fmt(parseFloat(t.valor))}</td>
                         </tr>
