@@ -95,6 +95,9 @@ const ExtratoExport = () => {
             justify-content: space-between;
             margin-top: 8px;
           }
+          .print-footer .footer-page-number::after {
+            content: counter(page) " de " counter(pages);
+          }
         }
         @media not print {
           .print-footer-screen {
