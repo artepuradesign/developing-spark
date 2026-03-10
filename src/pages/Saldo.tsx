@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, HelpCircle, MoreHorizontal, Plus, Send, BarC
 import { apiGet } from "@/lib/api";
 
 interface ContaData {
+  conta_id: number;
   saldo: number;
   limite_credito: number;
 }
