@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Printer } from "lucide-react";
@@ -14,8 +14,6 @@ const ExtratoExport = () => {
 
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [totalPages, setTotalPages] = useState(1);
-  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!contaId || !dataInicio || !dataFim) return;
@@ -24,19 +22,6 @@ const ExtratoExport = () => {
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [contaId, dataInicio, dataFim]);
-
-  useEffect(() => {
-    const updateTotalPages = () => {
-      const contentHeight = contentRef.current?.scrollHeight || 0;
-      const printableHeight = 297 - 6 - 12 - 50;
-      const estimatedPages = Math.max(1, Math.ceil(contentHeight / (printableHeight * 3.7795275591)));
-      setTotalPages(estimatedPages);
-    };
-
-    updateTotalPages();
-    window.addEventListener("resize", updateTotalPages);
-    return () => window.removeEventListener("resize", updateTotalPages);
-  }, [data]);
 
   const fmt = (v: number) =>
     v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -121,7 +106,7 @@ const ExtratoExport = () => {
             margin-top: 8px;
           }
           .print-footer .footer-page-number::after {
-            content: counter(page);
+            content: counter(page) " de " counter(pages);
           }
         }
         @media not print {
@@ -149,7 +134,7 @@ const ExtratoExport = () => {
         <p style={{ marginTop: "4px" }}>Caso a solução fornecida nos canais de atendimento não tenha sido satisfatória, fale com a Ouvidoria em 0800 887 0463 ou pelos meios disponíveis em nubank.com.br/contatos#ouvidoria. Atendimento das 8h às 18h em dias úteis.</p>
         <div className="footer-date-page">
           <span>Extrato gerado dia {new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })} às {new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</span>
-          <span className="footer-page-number"> de {totalPages}</span>
+          <span className="footer-page-number"></span>
         </div>
       </div>
 
@@ -165,7 +150,6 @@ const ExtratoExport = () => {
 
       <div className="flex justify-center py-8 print:py-0 bg-secondary/30 print:bg-white min-h-screen">
         <div
-          ref={contentRef}
           className="bg-white shadow-lg print:shadow-none w-[210mm] min-h-[297mm] px-[15mm] py-[20mm] print:w-full print:min-h-0 print:px-[15mm] print:pt-[12mm] print:pb-[50mm]"
           style={pageStyle}
         >
