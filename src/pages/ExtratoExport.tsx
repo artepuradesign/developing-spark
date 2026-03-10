@@ -282,8 +282,29 @@ const ExtratoExport = () => {
             );
           })}
 
+          {/* ===== ÚLTIMA PÁGINA: Disclaimer + Empresas ===== */}
+          <div style={{ marginTop: "40px", pageBreakInside: "avoid" }}>
+            <div style={{ borderTop: "1px solid #ddd", paddingTop: "16px", fontSize: "10px", color: "#555", lineHeight: "1.6" }}>
+              <p>O saldo líquido corresponde ao total de depósitos e rendimentos em conta, não considerando movimentações feitas após a data mencionada.</p>
+              <p>Não nos responsabilizamos pelo uso indevido ou por alterações das informações originalmente contidas neste documento após envio.</p>
+              <p>Asseguramos a autenticidade destas movimentações e das informações aqui citadas.</p>
+            </div>
+
+            <div className="flex justify-between items-start" style={{ marginTop: "20px", fontSize: "10px", lineHeight: "1.6", color: "#222" }}>
+              <div>
+                <p style={{ fontWeight: 700 }}>Nu Financeira S.A. - Sociedade de Credito, Financiamento</p>
+                <p style={{ fontWeight: 700 }}>e Investimento</p>
+                <p>CNPJ: 30.680.829/0001-43</p>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ fontWeight: 700 }}>Nu Pagamentos S.A. - Instituição de Pagamento</p>
+                <p>CNPJ: 18.236.120/0001-58</p>
+              </div>
+            </div>
+          </div>
+
           {/* Screen-only footer */}
-          <div className="print:hidden print-footer-screen">
+          <div className="print-footer-screen" style={{ marginTop: "32px" }}>
             <p>Tem alguma dúvida? Mande uma mensagem para nosso time de atendimento pelo chat do app ou ligue 4020 0185 (capitais e regiões metropolitanas) ou 0800 591 2117 (demais localidades). Atendimento 24h.</p>
             <p style={{ marginTop: "8px" }}>Caso a solução fornecida nos canais de atendimento não tenha sido satisfatória, fale com a Ouvidoria em 0800 887 0463 ou pelos meios disponíveis em nubank.com.br/contatos#ouvidoria. Atendimento das 8h às 18h em dias úteis.</p>
             <div className="flex justify-between" style={{ marginTop: "12px" }}>
