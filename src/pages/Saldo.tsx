@@ -103,11 +103,23 @@ const Saldo = () => {
 
   const handleExportExtrato = () => {
     if (!selectedMonth || !userId) return;
-    const [year, month] = selectedMonth.split("-");
-    const startDate = `${year}-${month}-01`;
-    const lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
-    const endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
-    // Navigate to extrato-export with params
+
+    let startDate: string;
+    let endDate: string;
+
+    if (selectedMonth.startsWith("period-")) {
+      const months = parseInt(selectedMonth.replace("period-", ""));
+      const end = new Date();
+      const start = new Date(end.getFullYear(), end.getMonth() - months, end.getDate());
+      startDate = start.toISOString().split("T")[0];
+      endDate = end.toISOString().split("T")[0];
+    } else {
+      const [year, month] = selectedMonth.split("-");
+      startDate = `${year}-${month}-01`;
+      const lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
+      endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
+    }
+
     navigate(`/extrato-export?conta_id=${userId}&data_inicio=${startDate}&data_fim=${endDate}`);
   };
 
