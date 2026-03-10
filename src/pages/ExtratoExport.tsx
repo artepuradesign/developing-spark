@@ -17,7 +17,7 @@ const ExtratoExport = () => {
 
   useEffect(() => {
     if (!contaId || !dataInicio || !dataFim) return;
-    apiGet("admin.php", { action: "transacoes", conta_id: contaId, data_inicio: dataInicio, data_fim: dataFim })
+    apiGet("extrato.php", { conta_id: contaId, data_inicio: dataInicio, data_fim: dataFim })
       .then(setData)
       .catch(() => {})
       .finally(() => setLoading(false));
