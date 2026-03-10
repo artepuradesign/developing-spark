@@ -222,7 +222,7 @@ const ExtratoExport = () => {
                       <td style={{ padding: "10px 16px 10px 0" }}></td>
                       <td style={{ fontWeight: 700, padding: "10px 0" }}>Saldo do dia</td>
                       <td style={{ padding: "10px 0" }}></td>
-                      <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0" }}>{fmt(saldoPorDia[dia])}</td>
+                      <td style={{ fontWeight: 700, textAlign: "right", padding: "10px 0 10px 24px" }}>{fmt(saldoPorDia[dia])}</td>
                     </tr>
                   </tbody>
                 </table>
