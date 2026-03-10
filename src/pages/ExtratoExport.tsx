@@ -148,7 +148,7 @@ const ExtratoExport = () => {
           </div>
 
           {/* ===== MOVIMENTAÇÕES ===== */}
-          <div style={{ borderBottom: "2px solid #222", marginBottom: "4px" }}></div>
+          <div style={{ borderBottom: "2px solid #ccc", marginBottom: "4px" }}></div>
           <div style={{ marginBottom: "16px" }}>
             <span style={{ fontWeight: 700, fontSize: "12px" }}>Movimentações</span>
           </div>
