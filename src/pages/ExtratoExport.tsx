@@ -273,8 +273,8 @@ const ExtratoExport = () => {
             );
           })}
 
-          {/* ===== FOOTER ===== */}
-          <div style={{ marginTop: "32px", borderTop: "2px solid #ccc", paddingTop: "16px", fontSize: "10px", color: "#888", lineHeight: "1.6" }}>
+          {/* Screen-only footer */}
+          <div className="print:hidden print-footer-screen">
             <p>Tem alguma dúvida? Mande uma mensagem para nosso time de atendimento pelo chat do app ou ligue 4020 0185 (capitais e regiões metropolitanas) ou 0800 591 2117 (demais localidades). Atendimento 24h.</p>
             <p style={{ marginTop: "8px" }}>Caso a solução fornecida nos canais de atendimento não tenha sido satisfatória, fale com a Ouvidoria em 0800 887 0463 ou pelos meios disponíveis em nubank.com.br/contatos#ouvidoria. Atendimento das 8h às 18h em dias úteis.</p>
             <div className="flex justify-between" style={{ marginTop: "12px" }}>
