@@ -86,12 +86,12 @@ const ExtratoExport = () => {
 
       <div className="flex justify-center py-8 print:py-0 bg-secondary/30 print:bg-white min-h-screen">
         <div
-          className="bg-white shadow-lg print:shadow-none w-[210mm] min-h-[297mm] px-[25mm] py-[20mm] print:w-full print:min-h-0 print:px-[20mm] print:py-[15mm]"
+          className="bg-white shadow-lg print:shadow-none w-[210mm] min-h-[297mm] px-[15mm] py-[20mm] print:w-full print:min-h-0 print:px-[12mm] print:py-[15mm]"
           style={pageStyle}
         >
           {/* ===== HEADER ===== */}
           <div className="flex justify-between items-start mb-12">
-            <img src={logoNu} alt="Nu" style={{ height: "42px", width: "auto" }} />
+            <img src={logoNu} alt="Nu" style={{ height: "32px", width: "auto" }} />
             <div className="text-right" style={{ fontSize: "12px", lineHeight: "1.6" }}>
               <p style={{ fontWeight: 400 }}>{conta.titular}</p>
               <p>
@@ -117,7 +117,7 @@ const ExtratoExport = () => {
           <div className="flex justify-between items-start" style={{ marginBottom: "24px" }}>
             <div style={{ paddingTop: "8px" }}>
               <p style={{ fontSize: "11px", color: "#666", marginBottom: "6px" }}>Saldo final do período</p>
-              <p style={{ fontSize: "26px", fontWeight: 700, color: "#1a7a2e", lineHeight: "1.2" }}>
+              <p style={{ fontSize: "26px", fontWeight: 700, color: "#820AD1", lineHeight: "1.2" }}>
                 R$ {fmt(resumo.saldo_final)}
               </p>
             </div>
@@ -148,8 +148,9 @@ const ExtratoExport = () => {
           </div>
 
           {/* ===== MOVIMENTAÇÕES ===== */}
-          <div style={{ borderBottom: "2px solid #222", paddingBottom: "6px", marginBottom: "16px" }}>
-            <span style={{ fontWeight: 700, fontSize: "12px", textDecoration: "underline", textUnderlineOffset: "4px" }}>Movimentações</span>
+          <div style={{ borderBottom: "2px solid #222", marginBottom: "4px" }}></div>
+          <div style={{ marginBottom: "16px" }}>
+            <span style={{ fontWeight: 700, fontSize: "12px" }}>Movimentações</span>
           </div>
 
           {datasOrdenadas.length === 0 && (
@@ -223,7 +224,7 @@ const ExtratoExport = () => {
                 {/* Saldo do dia */}
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px" }}>
                   <tbody>
-                    <tr style={{ borderTop: "2px solid #bbb", borderBottom: "2px solid #bbb" }}>
+                    <tr style={{ borderTop: "1px solid #ccc", borderBottom: "1px solid #ccc" }}>
                       <td style={{ width: "90px", padding: "8px 12px 8px 0" }}></td>
                       <td style={{ fontWeight: 700, padding: "8px 0" }}>Saldo do dia</td>
                       <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0" }}>{fmt(saldoPorDia[dia])}</td>
