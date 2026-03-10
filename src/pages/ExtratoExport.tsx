@@ -171,7 +171,7 @@ const ExtratoExport = () => {
                   <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "11px", marginBottom: "4px" }}>
                     <tbody>
                       {/* Total de entradas row */}
-                      <tr style={{ borderBottom: "1px solid #ddd" }}>
+                      <tr style={{ borderBottom: "1px solid #eee" }}>
                         <td style={{ width: "90px", verticalAlign: "top", padding: "8px 12px 8px 0", fontWeight: 400, color: "#222" }}>{fmtDia(dia)}</td>
                         <td style={{ fontWeight: 700, padding: "8px 0" }}>Total de entradas</td>
                         <td style={{ fontWeight: 700, textAlign: "right", padding: "8px 0", whiteSpace: "nowrap" }}>+ {fmt(totalE)}</td>
