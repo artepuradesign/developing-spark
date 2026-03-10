@@ -25,8 +25,20 @@ const ExtratoExport = () => {
       .finally(() => setLoading(false));
   }, [contaId, dataInicio, dataFim]);
 
+  useEffect(() => {
+    const updateTotalPages = () => {
+      const contentHeight = contentRef.current?.scrollHeight || 0;
+      const printableHeight = 297 - 6 - 12 - 50;
+      const estimatedPages = Math.max(1, Math.ceil(contentHeight / (printableHeight * 3.7795275591)));
+      setTotalPages(estimatedPages);
+    };
+
+    updateTotalPages();
+    window.addEventListener("resize", updateTotalPages);
+    return () => window.removeEventListener("resize", updateTotalPages);
+  }, [data]);
+
   const fmt = (v: number) =>
-    v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const handlePrint = () => window.print();
 
