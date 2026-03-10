@@ -104,7 +104,7 @@ const ExtratoExport = () => {
           </div>
 
           {/* ===== PERÍODO ===== */}
-          <div style={{ borderBottom: "2px solid #222", paddingBottom: "8px", marginBottom: "24px" }}>
+          <div style={{ borderBottom: "2px solid #ccc", paddingBottom: "8px", marginBottom: "24px" }}>
             <div className="flex justify-between items-baseline">
               <span style={{ fontWeight: 700, fontSize: "12px" }}>
                 {fmtPeriodo(dataInicio)} a {fmtPeriodo(dataFim)}
