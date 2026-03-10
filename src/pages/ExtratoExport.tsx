@@ -85,11 +85,13 @@ const ExtratoExport = () => {
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 8px 12mm;
-            font-size: 9px;
+            padding: 12px 12mm 8px 12mm;
+            font-size: 8.5px;
             color: #888;
-            line-height: 1.5;
-            border-top: 2px solid #ccc;
+            line-height: 1.4;
+            border-top: 1px solid #ccc;
+            font-family: 'Graphik', sans-serif;
+            font-weight: 400;
           }
           .print-footer .footer-date-page {
             display: flex;
