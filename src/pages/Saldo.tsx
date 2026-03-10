@@ -103,11 +103,23 @@ const Saldo = () => {
 
   const handleExportExtrato = () => {
     if (!selectedMonth || !userId) return;
-    const [year, month] = selectedMonth.split("-");
-    const startDate = `${year}-${month}-01`;
-    const lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
-    const endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
-    // Navigate to extrato-export with params
+
+    let startDate: string;
+    let endDate: string;
+
+    if (selectedMonth.startsWith("period-")) {
+      const months = parseInt(selectedMonth.replace("period-", ""));
+      const end = new Date();
+      const start = new Date(end.getFullYear(), end.getMonth() - months, end.getDate());
+      startDate = start.toISOString().split("T")[0];
+      endDate = end.toISOString().split("T")[0];
+    } else {
+      const [year, month] = selectedMonth.split("-");
+      startDate = `${year}-${month}-01`;
+      const lastDay = new Date(parseInt(year), parseInt(month), 0).getDate();
+      endDate = `${year}-${month}-${String(lastDay).padStart(2, "0")}`;
+    }
+
     navigate(`/extrato-export?conta_id=${userId}&data_inicio=${startDate}&data_fim=${endDate}`);
   };
 
@@ -362,73 +374,109 @@ const Saldo = () => {
       )}
 
       {/* ===== FULL SCREEN SLIDE - Month Picker ===== */}
-      <div
-        className={`fixed inset-0 z-[60] max-w-md mx-auto bg-background transition-transform duration-300 ease-in-out ${
-          showMonthPicker ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Header */}
-        <div className="px-5 pt-12 pb-2">
-          <button onClick={() => setShowMonthPicker(false)} className="p-1 mb-4">
-            <X className="h-6 w-6 text-foreground" />
-          </button>
-          <h1 className="text-[26px] font-bold text-foreground font-heading leading-tight">
-            Selecione o mês que você{"\n"}quer no seu extrato
-          </h1>
-        </div>
+      {showMonthPicker && (
+        <div
+          className="fixed inset-0 z-[60] max-w-md mx-auto bg-background animate-in slide-in-from-right duration-300"
+        >
+          {/* Header */}
+          <div className="px-5 pt-12 pb-2">
+            <button onClick={() => { setShowMonthPicker(false); setSelectedMonth(null); }} className="p-1 mb-4">
+              <X className="h-6 w-6 text-foreground" />
+            </button>
+            <h1 className="text-[26px] font-bold text-foreground font-heading leading-tight">
+              Selecione o mês que você{"\n"}quer no seu extrato
+            </h1>
+          </div>
 
-        {/* Month list */}
-        <div className="flex-1 overflow-y-auto px-5 pb-28" style={{ maxHeight: "calc(100vh - 220px)" }}>
-          {Object.entries(byYear)
-            .sort(([a], [b]) => Number(b) - Number(a))
-            .map(([year, months]) => (
-              <div key={year} className="mt-6">
-                <p className="text-sm text-muted-foreground font-body mb-4">{year}</p>
-                <div className="space-y-2">
-                  {months.map(m => {
-                    const isSelected = selectedMonth === m.value;
-                    return (
-                      <button
-                        key={m.value}
-                        className="w-full flex items-center gap-4 py-4 active:bg-muted/30 transition-colors"
-                        onClick={() => setSelectedMonth(m.value)}
-                      >
-                        {/* Radio circle */}
-                        <div
-                          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
-                            isSelected
-                              ? "border-primary"
-                              : "border-muted-foreground/40"
-                          }`}
+          {/* Month list */}
+          <div className="flex-1 overflow-y-auto px-5 pb-28" style={{ maxHeight: "calc(100vh - 220px)" }}>
+            {Object.entries(byYear)
+              .sort(([a], [b]) => Number(b) - Number(a))
+              .map(([year, months]) => (
+                <div key={year} className="mt-6">
+                  <p className="text-sm text-muted-foreground font-body mb-4">{year}</p>
+                  <div className="space-y-2">
+                    {months.map(m => {
+                      const isSelected = selectedMonth === m.value;
+                      return (
+                        <button
+                          key={m.value}
+                          className="w-full flex items-center gap-4 py-4 active:bg-muted/30 transition-colors"
+                          onClick={() => setSelectedMonth(m.value)}
                         >
-                          {isSelected && (
-                            <div className="w-3 h-3 rounded-full bg-primary" />
-                          )}
-                        </div>
-                        <span className="text-base text-foreground font-body">{m.label}</span>
-                      </button>
-                    );
-                  })}
+                          <div
+                            className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                              isSelected
+                                ? "border-primary"
+                                : "border-muted-foreground/40"
+                            }`}
+                          >
+                            {isSelected && (
+                              <div className="w-3 h-3 rounded-full bg-primary" />
+                            )}
+                          </div>
+                          <span className="text-base text-foreground font-body">{m.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
+              ))}
 
-        {/* Fixed bottom button */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 pb-8 bg-background">
-          <button
-            onClick={handleExportExtrato}
-            disabled={!selectedMonth}
-            className={`w-full py-4 rounded-full text-base font-semibold font-heading transition-colors ${
-              selectedMonth
-                ? "bg-primary text-primary-foreground active:opacity-90"
-                : "bg-muted text-muted-foreground"
-            }`}
-          >
-            Exportar Extrato
-          </button>
+            {/* Period selection */}
+            <div className="mt-8">
+              <h2 className="text-[22px] font-bold text-foreground font-heading leading-tight mb-2">
+                Selecione o período que você{"\n"}quer no seu extrato
+              </h2>
+              <div className="space-y-2 mt-4">
+                {[
+                  { label: "3 últimos meses", value: "period-3" },
+                  { label: "6 últimos meses", value: "period-6" },
+                  { label: "1 ano", value: "period-12" },
+                  { label: "2 anos", value: "period-24" },
+                ].map(p => {
+                  const isSelected = selectedMonth === p.value;
+                  return (
+                    <button
+                      key={p.value}
+                      className="w-full flex items-center gap-4 py-4 active:bg-muted/30 transition-colors"
+                      onClick={() => setSelectedMonth(p.value)}
+                    >
+                      <div
+                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
+                          isSelected
+                            ? "border-primary"
+                            : "border-muted-foreground/40"
+                        }`}
+                      >
+                        {isSelected && (
+                          <div className="w-3 h-3 rounded-full bg-primary" />
+                        )}
+                      </div>
+                      <span className="text-base text-foreground font-body">{p.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Fixed bottom button */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 pb-8 bg-background">
+            <button
+              onClick={handleExportExtrato}
+              disabled={!selectedMonth}
+              className={`w-full py-4 rounded-full text-base font-semibold font-heading transition-colors ${
+                selectedMonth
+                  ? "bg-primary text-primary-foreground active:opacity-90"
+                  : "bg-muted text-muted-foreground"
+              }`}
+            >
+              Exportar Extrato
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
